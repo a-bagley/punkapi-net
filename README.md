@@ -1,2 +1,2 @@
 # punkapi-net
-.Net client for punkapi
+.Net client library for PUNK API (https://punkapi.com)
