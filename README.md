@@ -5,7 +5,7 @@
 
 ## Configuration
 Punkapi-net can easily be configured for use with your .Net application using the Service Collections Extension Pattern.
-```
+```cs
 using PunkApiNet;
 
 // Default config
@@ -26,7 +26,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ## Inject into your class and use
-```
+```cs
 public class MyClass
 {
     private readonly IPunkApiClient _punkApiClient;
