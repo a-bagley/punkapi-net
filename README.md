@@ -1,3 +1,5 @@
+![example workflow](https://github.com/a-bagley/punkapi-net/actions/workflows/build.yml/badge.svg)
+
 # punkapi-net
 .Net client library for PUNK API (https://punkapi.com)
 
