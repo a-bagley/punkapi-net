@@ -30,7 +30,7 @@ var requestParams = new PunkApiRequestParamsBuilder()
     .Build();
 
 Console.WriteLine(Environment.NewLine);
-Console.WriteLine("Fetching page 2 of beers with Abv over 5%");
+Console.WriteLine("Fetching page 2 of beers with Abv over 6%");
 
 var SecondSetOfBeersOverSixPercentAbv = await punkApiClient.GetAllBeersWithFilterAsync(requestParams);
 

@@ -2,6 +2,7 @@
 
 .Net client library for PUNK API (https://punkapi.com)
 
+See the [Demo](https://github.com/a-bagley/punkapi-net/blob/main/demo/PunkApiNetDemo/Program.cs) console app or follow the instructions below to get started.
 
 ## Configuration
 Punkapi-net can easily be configured for use with your .Net application using the Service Collections Extension Pattern.
