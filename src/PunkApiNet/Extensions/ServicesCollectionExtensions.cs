@@ -30,7 +30,7 @@ namespace PunkApiNet.Extensions
         /// <returns>The IServiceCollection instance</returns>
         public static IServiceCollection AddPunkApiClient(this IServiceCollection services)
         {
-            return AddPunkApiClient(services, null);
+            return AddPunkApiClient(services, (congif) => { });
         }
 
         public static IHttpClientBuilder AddTypedHttpClient<T, TImpl, TOptions>(
