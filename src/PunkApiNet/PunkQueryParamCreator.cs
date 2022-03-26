@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
+[assembly: InternalsVisibleTo("PunkApiNet.Tests")]
 namespace PunkApiNet
 {
-    public static class PunkQueryParamCreator
+    internal static class PunkQueryParamCreator
     {
-        public static string BuildQueryParamsString(PunkApiRequestParams punkApiRequestParams)
+        internal static string BuildQueryParamsString(PunkApiRequestParams punkApiRequestParams)
         {
             if (punkApiRequestParams == null)
                 return string.Empty;
