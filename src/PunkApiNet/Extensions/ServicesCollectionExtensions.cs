@@ -4,7 +4,7 @@ using PunkApiNet.Configuration;
 using System;
 using System.Net.Http;
 
-namespace PunkApiNet.src
+namespace PunkApiNet.Extensions
 {
     public static class ServicesCollectionExtensions
     {
