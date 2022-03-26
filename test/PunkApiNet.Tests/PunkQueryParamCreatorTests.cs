@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace PunkApiNet.Tests
 {
@@ -22,6 +22,7 @@ namespace PunkApiNet.Tests
             {
                 yield return new TestCaseData(null, string.Empty).SetArgDisplayNames("Null params");
                 yield return new TestCaseData(new PunkApiRequestParams(), string.Empty).SetArgDisplayNames("No params");
+                yield return new TestCaseData(new PunkApiRequestParams { PageIndex = 2 }, "?page=2").SetArgDisplayNames("?page=2");
                 yield return new TestCaseData(new PunkApiRequestParams { AbvGreaterThan = 1 }, "?abv_gt=1").SetArgDisplayNames("?abv_gt=1");
                 yield return new TestCaseData(new PunkApiRequestParams { AbvLessThan = 2 }, "?abv_lt=2").SetArgDisplayNames("?abv_lt=2");
                 yield return new TestCaseData(new PunkApiRequestParams { EbcGreaterThan = 3 }, "?ebc_gt=3").SetArgDisplayNames("?ebc_gt=3");
@@ -36,7 +37,7 @@ namespace PunkApiNet.Tests
                 yield return new TestCaseData(new PunkApiRequestParams { Hops = "chinook" }, "?hops=chinook").SetArgDisplayNames("?chinook=chinook");
                 yield return new TestCaseData(new PunkApiRequestParams { Malt = "pale" }, "?malt=pale").SetArgDisplayNames("?malt=pale");
                 yield return new TestCaseData(new PunkApiRequestParams { Food = "burger" }, "?food=burger").SetArgDisplayNames("?food=burger");
-                yield return new TestCaseData(new PunkApiRequestParams { Ids = Enumerable.Empty<int>() }, string.Empty).SetArgDisplayNames("Empty Ids");
+                yield return new TestCaseData(new PunkApiRequestParams { Ids = new List<int>() }, string.Empty).SetArgDisplayNames("Empty Ids");
                 yield return new TestCaseData(new PunkApiRequestParams { Ids = new[] { 1 } }, "?ids=1").SetArgDisplayNames("?ids=1");
                 yield return new TestCaseData(new PunkApiRequestParams { Ids = new[] { 1, 2 } }, "?ids=1|2").SetArgDisplayNames("?ids=1|2");
                 yield return new TestCaseData(new PunkApiRequestParams { Ids = new[] { 1, 2, 3 } }, "?ids=1|2|3").SetArgDisplayNames("?ids=1|2|3");

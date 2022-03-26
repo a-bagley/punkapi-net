@@ -13,6 +13,8 @@ namespace PunkApiNet
 
             var queryBuilder = new StringBuilder();
 
+            AddPageIndex(queryBuilder, punkApiRequestParams);
+            AddMaxResults(queryBuilder, punkApiRequestParams);
             AddAbvGreaterThan(queryBuilder, punkApiRequestParams);
             AddAbvLessThan(queryBuilder, punkApiRequestParams);
             AddIbuGreaterThan(queryBuilder, punkApiRequestParams);
@@ -29,6 +31,26 @@ namespace PunkApiNet
             AddIds(queryBuilder, punkApiRequestParams);
 
             return queryBuilder.ToString();
+        }
+
+        private static void AddMaxResults(StringBuilder stringBuilder, PunkApiRequestParams punkApiRequestParams)
+        {
+            if (punkApiRequestParams.MaxResultCount.HasValue)
+            {
+                AddParamConnector(stringBuilder);
+                stringBuilder.Append("per_page");
+                AddValue(stringBuilder, punkApiRequestParams.MaxResultCount.Value);
+            }
+        }
+
+        private static void AddPageIndex(StringBuilder stringBuilder, PunkApiRequestParams punkApiRequestParams)
+        {
+            if (punkApiRequestParams.PageIndex.HasValue)
+            {
+                AddParamConnector(stringBuilder);
+                stringBuilder.Append("page");
+                AddValue(stringBuilder, punkApiRequestParams.PageIndex.Value);
+            }
         }
 
         private static void AddAbvGreaterThan(StringBuilder stringBuilder, PunkApiRequestParams punkApiRequestParams)

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PunkApiNet
 {
     public class PunkApiRequestParams
     {
+        public const int DefaultMaxResultCount = 25;
+
+        public int? MaxResultCount { get; set; }
+        public int? PageIndex { get; set; }
         public int? AbvGreaterThan { get; set; }
         public int? AbvLessThan { get; set; }
         public int? IbuGreaterThan { get; set; }
@@ -19,7 +22,10 @@ namespace PunkApiNet
         public string Hops { get; set; }
         public string Malt { get; set; }
         public string Food { get; set; }
-        public IEnumerable<int> Ids { get; set; } = Enumerable.Empty<int>();
+        public IList<int> Ids { get; set; } = new List<int>();
+
+        public static PunkApiRequestParams Default()
+            => new PunkApiRequestParams { MaxResultCount = DefaultMaxResultCount };
 
     }
 }

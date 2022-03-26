@@ -17,24 +17,24 @@ namespace PunkApiNet
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<Beer>> GetAllBeersAsync(int maxResults = 25)
+        public async Task<IEnumerable<Beer>> GetAllBeersAsync(int maxResults = PunkApiRequestParams.DefaultMaxResultCount)
         {
-            return await GetAsync<IEnumerable<Beer>>("beers", null, maxResults);
+            var requestParams = new PunkApiRequestParams { MaxResultCount = maxResults };
+            return await GetAsync<IEnumerable<Beer>>("beers", requestParams);
         }
 
-        public async Task<IEnumerable<Beer>> GetAllBeersByPageAsync(int pageIndex, int maxResults = 25)
+        public async Task<IEnumerable<Beer>> GetAllBeersByPageAsync(int pageIndex, int maxResults = PunkApiRequestParams.DefaultMaxResultCount)
         {
-            return await GetAsync<IEnumerable<Beer>>($"beers?page={pageIndex}", null, maxResults);
+            var punkApiRequestParams = new PunkApiRequestParams { PageIndex = pageIndex, MaxResultCount = maxResults };
+            return await GetAsync<IEnumerable<Beer>>("beers", punkApiRequestParams);
         }
 
-        public async Task<IEnumerable<Beer>> GetAllBeersWithFilterAsync(PunkApiRequestParams punkAPiRequestParams, int maxResults = 25)
+        public async Task<IEnumerable<Beer>> GetAllBeersWithFilterAsync(PunkApiRequestParams punkApiRequestParams)
         {
-            return await GetAsync<IEnumerable<Beer>>("beers", punkAPiRequestParams, maxResults);
-        }
+            if (punkApiRequestParams == null)
+                punkApiRequestParams = PunkApiRequestParams.Default();
 
-        public async Task<IEnumerable<Beer>> GetAllBeersWithFilterByPageAsync(PunkApiRequestParams punkAPiRequestParams, int pageIndex, int maxResults = 25)
-        {
-            return await GetAsync<IEnumerable<Beer>>($"beers?page={pageIndex}", punkAPiRequestParams, maxResults);
+            return await GetAsync<IEnumerable<Beer>>("beers", punkApiRequestParams);
         }
 
         public async Task<Beer> GetBeerAsync(int id)
@@ -47,17 +47,13 @@ namespace PunkApiNet
             return await GetAsync<Beer>("beers/random");
         }
 
-        private async Task<T> GetAsync<T>(string relativePath, PunkApiRequestParams punkAPiRequestParams = null, int? maxResults = 25)
+        private async Task<T> GetAsync<T>(string relativePath, PunkApiRequestParams punkApiRequestParams = null)
         {
             try
             {
                 var relativePathAndQuery = relativePath;
-                if (maxResults.HasValue)
-                {
-                    relativePathAndQuery += "?per_page=" + maxResults.Value;
-                }
 
-                relativePathAndQuery += PunkQueryParamCreator.BuildQueryParamsString(punkAPiRequestParams);
+                 relativePathAndQuery += PunkQueryParamCreator.BuildQueryParamsString(punkApiRequestParams);
 
                 using var request = new HttpRequestMessage(HttpMethod.Get, relativePathAndQuery);
 

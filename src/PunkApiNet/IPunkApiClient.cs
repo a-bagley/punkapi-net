@@ -8,8 +8,7 @@ namespace PunkApiNet
     {
         Task<IEnumerable<Beer>> GetAllBeersAsync(int maxResults = 25);
         Task<IEnumerable<Beer>> GetAllBeersByPageAsync(int pageIndex, int maxResults = 25);
-        Task<IEnumerable<Beer>> GetAllBeersWithFilterAsync(PunkApiRequestParams punkAPiRequestParams, int maxResults = 25);
-        Task<IEnumerable<Beer>> GetAllBeersWithFilterByPageAsync(PunkApiRequestParams punkAPiRequestParams, int pageIndex, int maxResults = 25);
+        Task<IEnumerable<Beer>> GetAllBeersWithFilterAsync(PunkApiRequestParams punkApiRequestParams);
         Task<Beer> GetBeerAsync(int id);
         Task<Beer> GetRandomBeerAsync();
     }
