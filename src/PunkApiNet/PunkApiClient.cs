@@ -57,10 +57,10 @@ namespace PunkApiNet
 
                 using var request = new HttpRequestMessage(HttpMethod.Get, relativePathAndQuery);
 
-                var beersResponse = await _httpClient.SendAsync(request);
+                var beersResponse = await _httpClient.SendAsync(request).ConfigureAwait(false);
 
                 if (beersResponse.IsSuccessStatusCode)
-                    return await beersResponse.Content.ReadFromJsonAsync<T>();
+                    return await beersResponse.Content.ReadFromJsonAsync<T>().ConfigureAwait(false);
 
                 throw new PunkApiServiceException(beersResponse.StatusCode, "Request did not receive successful status code.");
             }
