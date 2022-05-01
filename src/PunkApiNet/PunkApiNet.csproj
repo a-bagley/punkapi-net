@@ -5,7 +5,29 @@
     <RootNamespace>PunkApiNet</RootNamespace>
 	<OutputType>Library</OutputType>
 	  <Version>0.0.1</Version>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageProjectUrl>https://github.com/a-bagley/punkapi-net</PackageProjectUrl>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <RepositoryUrl>https://github.com/a-bagley/punkapi-net</RepositoryUrl>
+	  <Description>.Net client library for PUNK API (https://punkapi.com)</Description>
+	  <PackageLicenseFile>C:\Dev\Git\punkapi-net\LICENSE</PackageLicenseFile>
+	  <Authors>abagley</Authors>
+	  <PackageTags>PunkApi, Beer, Client, Library, .NET</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
