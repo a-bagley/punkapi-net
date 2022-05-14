@@ -14,12 +14,6 @@
 	  <Authors>abagley</Authors>
 	  <PackageTags>PunkApi, Beer, Client, Library, .NET</PackageTags>
   </PropertyGroup>
-	
-  <PropertyGroup>
-	  <PublishRepositoryUrl>true</PublishRepositoryUrl>	
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\README.md">
