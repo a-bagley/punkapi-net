@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PunkApiNet;
-using PunkApiNet.Extensions;
 
 Console.WriteLine("Welcome to PunkApi-Net Demo!");
 
