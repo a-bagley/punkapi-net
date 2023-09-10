@@ -24,7 +24,7 @@ namespace PunkApiNet.Contracts
         public string ImageUrl { get; set; }
 
         [JsonPropertyName("abv")]
-        public double Abv { get; set; }
+        public double? Abv { get; set; }
 
         [JsonPropertyName("ibu")]
         public double? Ibu { get; set; }
