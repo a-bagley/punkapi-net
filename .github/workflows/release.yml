@@ -22,7 +22,7 @@ jobs:
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
+      run: echo "$GITHUB_CONTEXT"
     - name: Output version name
       run: echo "Version will be ${{ github.ref_name }}"
     - name: Pack nugets
